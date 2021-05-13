@@ -42,14 +42,14 @@ class CodeGeneration {
         Elements elements = processingEnvironment.getElementUtils();
         SourceVersion sourceVersion = processingEnvironment.getSourceVersion();
         AnnotationSpec.Builder annotationBuilder = null;
-        if (sourceVersion.compareTo(SourceVersion.RELEASE_8) > 0) {
+        //if (sourceVersion.compareTo(SourceVersion.RELEASE_8) > 0) {
             ClassName name = ClassName.bestGuess("javax.annotation.processing.Generated");
             annotationBuilder = AnnotationSpec.builder(name);
-        } else {
-            if (elements.getTypeElement(Generated.class.getCanonicalName()) != null) {
-                annotationBuilder = AnnotationSpec.builder(Generated.class);
-            }
-        }
+        //} else {
+        //    if (elements.getTypeElement(Generated.class.getCanonicalName()) != null) {
+        //        annotationBuilder = AnnotationSpec.builder(Generated.class);
+        //    }
+        //}
 
         if (annotationBuilder != null) {
             builder.addAnnotation(annotationBuilder
